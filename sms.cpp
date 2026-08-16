@@ -116,6 +116,42 @@ class Linked_List{
               }
         }
 
+        //deletion
+        void deletion(){
+              if(head==nullptr){
+                cout<<"\n\nLINKED LIST IS EMPTY!!!";
+              }  
+              else{
+                int r,found=0;
+                cout<<"\n\n ENTER ROLL NO. : ";
+                cin>>r;
+                if(r==head->roll_no){
+                    Node* temp=head;
+                    head=head->next;
+                    found++;
+                    delete temp;
+                    cout<<"\n\nRECORD DELETED SUCCESSFULLY!!";
+                }
+                else{
+                    Node* prev=head;
+                    Node* temp=head->next;
+                    while(temp!=nullptr){
+                        if(r=temp->roll_no){
+                            prev->next=temp->next;
+                            found++;
+                            delete temp;
+                            break;
+                        }
+                        prev=temp;
+                        temp=temp->next;
+                    }
+                }
+                if(found==0){
+                    cout<<"\n\nNO RESULTS FOUND!!!";
+                }
+
+        }
+    }
 
 };
 
@@ -158,6 +194,7 @@ int main(){
         break;
         case 5:
         system("cls");
+        obj.deletion();
         break;
         case 6:
         system("cls");
