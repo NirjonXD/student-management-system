@@ -28,7 +28,7 @@ class Linked_List{
             newNode->roll_no=r;
             newNode->name=n;
             newNode->marks=m;
-            newNode->per=(m/100)*100;
+            newNode->per=m;
             newNode->next=nullptr;
 
             if(head==nullptr){
@@ -136,7 +136,7 @@ class Linked_List{
                     Node* prev=head;
                     Node* temp=head->next;
                     while(temp!=nullptr){
-                        if(r=temp->roll_no){
+                        if(r==temp->roll_no){
                             prev->next=temp->next;
                             found++;
                             delete temp;
@@ -152,6 +152,23 @@ class Linked_List{
 
         }
     }
+
+    void show() {
+    if (head == nullptr) {
+        cout << "\n\nLINKED LIST IS EMPTY!!!";
+    } else {
+        Node* temp = head;
+        cout << "\n\n================ ALL RECORDS ================";
+        while (temp != nullptr) {
+            cout << "\n\n ROLL NO.   : " << temp->roll_no;
+            cout << "\n NAME       : " << temp->name;
+            cout << "\n MARKS      : " << temp->marks;
+            cout << "\n PERCENTAGE : " << temp->per << "%";
+            cout << "\n--------------------------------------------";
+            temp = temp->next;
+        }
+    }
+}
 
 };
 
@@ -198,6 +215,7 @@ int main(){
         break;
         case 6:
         system("cls");
+        obj.show();
         break;
         case 7:
         system("cls");
