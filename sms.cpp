@@ -20,9 +20,17 @@ class Linked_List{
             float m;
             cout<<"\n\nENTER ROLL NO. : ";
             cin>>r;
-            cout<<"\n\n ENTER NAME : ";
+            Node* checkDuplicate=head;
+            while(checkDuplicate!=nullptr){
+                if(checkDuplicate->roll_no==r){
+                    cout<<"\n\nSTUDENT WITH THIS ROLL NO. ALREADY EXISTS!!";
+                    return;
+                }
+                checkDuplicate=checkDuplicate->next;
+            }
+            cout<<"\n\nENTER NAME : ";
             cin>>n;
-            cout<<"\n\n ENTER MARKS : ";
+            cout<<"\n\nENTER MARKS : ";
             cin>>m;
             Node* newNode=new Node;
             newNode->roll_no=r;
