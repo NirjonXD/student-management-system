@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cstdlib>
 #include <conio.h>
 
 using namespace std;
@@ -227,7 +228,8 @@ int main(){
         break;
         case 7:
         system("cls");
-        break;
+        cout<<"THANK YOU FOR USING THE SYSTEM!!"<<endl;
+        exit(0);
         default:
         cout<<"\n\n\nPLEASE ENTER A VALID VALUE!!!"<<endl;
         break;
