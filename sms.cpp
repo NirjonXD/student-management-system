@@ -13,7 +13,7 @@ class Node{
 class Linked_List{
         public: 
             Node* head=nullptr; 
-
+        //Insertion
         void insert(){
             int r;
             string n;
@@ -45,7 +45,36 @@ class Linked_List{
             }
             cout<<"\n\nNEW NODE INSERTED SUCCESSFULLY!!!";
 
-        }    
+        }   
+        void search(){
+              if(head==nullptr){
+                cout<<"\n\nLINKED LIST IS EMPTY!!!";
+              }  
+              else{
+                int r,found=0;
+                cout<<"\n\n ENTER ROLL NO. : ";
+                cin>>r;
+                Node* temp=head;
+                while(temp!=nullptr){
+                    if(r==temp->roll_no){
+                        cout<<"\n\n ROLL NO. : "<<temp->roll_no;
+                        cout<<"\n\n NAME : "<<temp->name;
+                        cout<<"\n\n MARKS : "<<temp->marks;
+                        cout<<"\n\n PERCENTAGE : "<<temp->per;
+                        found++;
+                    }
+                    temp=temp->next;
+                }
+                if(found==0){
+                    cout<<"\n\nNO RESULTS FOUND!!!";
+                }
+              }
+        }
+
+        void count(){
+            
+        }
+
 };
 
 int main(){ 
