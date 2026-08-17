@@ -17,6 +17,7 @@ class Linked_List{
         public: 
             Node* head=nullptr; 
 
+            //FILE HANDLING
         void loadFromFile() {
             ifstream file("students.txt");
             if(!file) {
@@ -55,7 +56,7 @@ class Linked_List{
             }
             file.close();
         }
-
+        //INSERT STUDENT DATA
         void insert(){
             int r;
             string n;
@@ -96,6 +97,7 @@ class Linked_List{
             cout<<"\n\nNEW NODE INSERTED SUCCESSFULLY!!!";
 
         }   
+        //SEARCHING STUDENT ID
         void search(){
               if(head==nullptr){
                 cout<<"\n\nLINKED LIST IS EMPTY!!!";
@@ -120,7 +122,7 @@ class Linked_List{
                 }
               }
         }
-
+//COUNTING STUDENT ID
         void count(){
             if(head==nullptr){
                 cout<<"\n\nLINKED LIST IS EMPTY!";
@@ -135,7 +137,7 @@ class Linked_List{
                 cout<<"\n\n TOTAL NUMBER OF NODES : "<<cnt<<endl;
             }
         }
-
+//UPDATE FUNCTION
         void update(){
               if(head==nullptr){
                 cout<<"\n\nLINKED LIST IS EMPTY!!!";
@@ -165,7 +167,7 @@ class Linked_List{
                 }
               }
         }
-
+//DELETE FUNCTION
         void deletion(){
               if(head==nullptr){
                 cout<<"\n\nLINKED LIST IS EMPTY!!!";
@@ -201,7 +203,7 @@ class Linked_List{
 
         }
     }
-
+//SHOW ALL THE DATA
     void show() {
     if (head == nullptr) {
         cout << "\n\nLINKED LIST IS EMPTY!!!";
