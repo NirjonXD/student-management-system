@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cstdlib>
 #include <conio.h>
+#include <fstream>
 
 using namespace std;
 
@@ -11,10 +12,50 @@ class Node{
         float marks,per;
         Node* next;
 };
+
 class Linked_List{
         public: 
             Node* head=nullptr; 
-        //Insertion
+
+        void loadFromFile() {
+            ifstream file("students.txt");
+            if(!file) {
+                return;
+            }
+            int r;
+            string n;
+            float m, p;
+            while(file >> r >> n >> m >> p) {
+                Node* newNode = new Node;
+                newNode->roll_no = r;
+                newNode->name = n;
+                newNode->marks = m;
+                newNode->per = p;
+                newNode->next = nullptr;
+
+                if(head == nullptr) {
+                    head = newNode;
+                } else {
+                    Node* temp = head;
+                    while(temp->next != nullptr) {
+                        temp = temp->next;
+                    }
+                    temp->next = newNode;
+                }
+            }
+            file.close();
+        }
+
+        void saveToFile() {
+            ofstream file("students.txt");
+            Node* temp = head;
+            while(temp != nullptr) {
+                file << temp->roll_no << " " << temp->name << " " << temp->marks << " " << temp->per << "\n";
+                temp = temp->next;
+            }
+            file.close();
+        }
+
         void insert(){
             int r;
             string n;
@@ -125,7 +166,6 @@ class Linked_List{
               }
         }
 
-        //deletion
         void deletion(){
               if(head==nullptr){
                 cout<<"\n\nLINKED LIST IS EMPTY!!!";
@@ -185,9 +225,10 @@ int main(){
     int choice;
     Linked_List obj;
 
+    obj.loadFromFile();
+
     p:
     system("cls");
-    //menu
     cout<<"\n\n==================================================="<<endl;
     cout<<"\t\tSTUDENT MANAGEMENT SYSTEM"<<endl;
     cout<<"==================================================="<<endl;
@@ -228,6 +269,7 @@ int main(){
         break;
         case 7:
         system("cls");
+        obj.saveToFile();
         cout<<"THANK YOU FOR USING THE SYSTEM!!"<<endl;
         exit(0);
         default:
@@ -237,4 +279,3 @@ int main(){
     getch();
     goto p;
 }
-
