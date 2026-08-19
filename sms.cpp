@@ -19,7 +19,7 @@ class Linked_List{
 
             //FILE HANDLING
         void loadFromFile() {
-            ifstream file("students.txt");
+            ifstream file("D:\\project\\student management system\\students.txt");
             if(!file) {
                 return;
             }
@@ -48,7 +48,7 @@ class Linked_List{
         }
 
         void saveToFile() {
-            ofstream file("students.txt");
+            ofstream file("D:\\project\\student management system\\students.txt");
             Node* temp = head;
             while(temp != nullptr) {
                 file << temp->roll_no << " " << temp->name << " " << temp->marks << " " << temp->per << "\n";
